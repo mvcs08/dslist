@@ -3,6 +3,7 @@ package com.marcosdev.services;
 import com.marcosdev.dto.GameDTO;
 import com.marcosdev.dto.GameMinDTO;
 import com.marcosdev.entities.Game;
+import com.marcosdev.projections.GameMinProjection;
 import com.marcosdev.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,4 +29,12 @@ public class GameService {
         var game = gameRepository.findById(id).get();
         return new GameDTO(game);
     }
+
+    @Transactional(readOnly = true)
+    public List<GameMinDTO> findByList(Long listId) {
+        List<GameMinProjection> result =  gameRepository.searchByList(listId);
+        return result.stream().map(GameMinDTO::new).toList();
+    }
+
+
 }

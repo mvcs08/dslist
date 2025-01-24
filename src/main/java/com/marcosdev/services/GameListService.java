@@ -1,5 +1,6 @@
 package com.marcosdev.services;
 
+import com.marcosdev.dto.GameDTO;
 import com.marcosdev.dto.GameListDTO;
 import com.marcosdev.entities.GameList;
 import com.marcosdev.repositories.GameListRepository;
@@ -19,4 +20,5 @@ public class GameListService {
     public List<GameListDTO> findAll() {
         return gameListRepository.findAll().stream().map(GameListDTO::new).toList();
     }
+
 }

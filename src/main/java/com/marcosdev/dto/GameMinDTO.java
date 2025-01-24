@@ -2,6 +2,7 @@ package com.marcosdev.dto;
 
 
 import com.marcosdev.entities.Game;
+import com.marcosdev.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -19,6 +20,15 @@ public class GameMinDTO {
         year = game.getYear();
         imgUrl = game.getImgUrl();
         shortDescription = game.getShortDescription();
+    }
+
+    public GameMinDTO(GameMinProjection gameMinProjection) {
+        id = gameMinProjection.getId();
+        title = gameMinProjection.getTitle();
+        year = gameMinProjection.getYear();
+        imgUrl = gameMinProjection.getImgUrl();
+        shortDescription = gameMinProjection.getShortDescription();
+
     }
 
     public Long getId() {
