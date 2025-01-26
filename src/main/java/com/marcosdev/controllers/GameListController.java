@@ -2,6 +2,7 @@ package com.marcosdev.controllers;
 
 import com.marcosdev.dto.GameListDTO;
 import com.marcosdev.dto.GameMinDTO;
+import com.marcosdev.dto.GameMinListDTO;
 import com.marcosdev.services.GameListService;
 import com.marcosdev.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class GameListController {
     }
 
     @GetMapping(value = "/{listId}/games")
-    public List<GameMinDTO> findByList(@PathVariable Long listId){
+    public List<GameMinListDTO> findByList(@PathVariable Long listId){
         return gameService.findByList(listId);
     }
 

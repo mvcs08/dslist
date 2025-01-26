@@ -2,6 +2,7 @@ package com.marcosdev.services;
 
 import com.marcosdev.dto.GameDTO;
 import com.marcosdev.dto.GameMinDTO;
+import com.marcosdev.dto.GameMinListDTO;
 import com.marcosdev.entities.Game;
 import com.marcosdev.projections.GameMinProjection;
 import com.marcosdev.repositories.GameRepository;
@@ -31,9 +32,9 @@ public class GameService {
     }
 
     @Transactional(readOnly = true)
-    public List<GameMinDTO> findByList(Long listId) {
+    public List<GameMinListDTO> findByList(Long listId) {
         List<GameMinProjection> result =  gameRepository.searchByList(listId);
-        return result.stream().map(GameMinDTO::new).toList();
+        return result.stream().map(GameMinListDTO::new).toList();
     }
 
 
